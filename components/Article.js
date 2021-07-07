@@ -86,6 +86,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Awesome new lorem drop',
+    date: 'Jul 7th, 2021',
+    firstParagraph: `lorem ipsum`,
+    secondParagraph: `lorem tipsum`,
+    thirdParagraph: `lorem getsum`
   }
 ];
 
@@ -152,23 +159,9 @@ function articleMaker( article ) {
   return article
 }
 
-// Step 4: Outside your function now, loop over the data. At each iteration you'll use your component to create a div.article element and append it to the DOM inside div.articles (see index.html).
-
 // .map
-// const articleElements = data.map(data => {
-//   return articleMaker(data)
-// })
-
-// articleElements.forEach(elem => divArticle.append(elem))
-
-// forEach
-// data.forEach(articleElements => {
-//   const article = articleMaker(articleElements);
-//   document.querySelector('.articles').append(article)
-// })
-
-data.forEach(e => {
-  const article = articleMaker(e);
-
-  document.querySelector('.articles').append(article)
+const articleElements = data.map(data => {
+  return articleMaker(data)
 })
+
+articleElements.forEach(elem => document.querySelector('.articles').append(elem))
