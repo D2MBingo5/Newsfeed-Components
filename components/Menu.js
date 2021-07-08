@@ -6,6 +6,7 @@ let menuItems = [
   "What's New",
   'Tech Trends',
   'Music',
+  'Test',
   'Log Out'
 ];
 
@@ -32,25 +33,28 @@ let menuItems = [
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
 */
 
-// Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
-
-//   <div class="menu">
-//     <ul>
-//       {each menu item as an <li>}
-//     </ul>
-//   </div>
-
-//   The 'menuMaker' takes an array of menu items as its only argument.
 
 
-// function menuMaker(items){
-//   const menuDiv = document.createElement('div')
-//   menuDiv.classList.add('menu')
-//   const menuList = document.createElement('ul')
-//   const menuItem = document.createElement('li')
-//   menuItem.textContent = items.textContent
-//   return menuItem
-// }
+function menuMaker(items){
+  const body = document.querySelector('body')
+
+  const menuDiv = document.createElement('div')
+  menuDiv.classList.add('menu')
+  body.appendChild(menuDiv)
+
+  const menuList = document.createElement('ul')
+  menuDiv.appendChild(menuList)
+
+  // Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array.
+  // Add those items to the <ul>
+  items.forEach(element => {
+    console.log(element)
+    document.querySelector('ul').append(element)
+  });
+
+  return items
+}
+console.log(menuMaker(menuItems))
 
 // menuItems.forEach(item => {
 //   const menuItem = menuMaker(item)
