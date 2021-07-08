@@ -49,7 +49,6 @@ function menuMaker(items){
     document.querySelector('ul').append(element)
   });
 
-  // Step 4: Add a click event listener to the menu button. When clicked it should toggle the class 'menu--open' on div.menu (your div with a 'menu' class).
   const menuButton = document.querySelector('.menu-button')
   menuButton.addEventListener('click', () => {
     menuDiv.classList.toggle('menu--open')
@@ -58,9 +57,5 @@ function menuMaker(items){
 
   return menuDiv
 }
-console.log(menuMaker(menuItems))
 
-// menuItems.forEach(item => {
-//   const menuItem = menuMaker(item)
-//   document.querySelector('ul').appendChild(menuItem)
-// })
+menuMaker(menuItems)
