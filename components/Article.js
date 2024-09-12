@@ -86,6 +86,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Awesome new lorem drop',
+    date: 'Jul 7th, 2021',
+    firstParagraph: `lorem ipsum`,
+    secondParagraph: `lorem tipsum`,
+    thirdParagraph: `lorem getsum`
   }
 ];
 
@@ -114,3 +121,47 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+console.log(data)
+
+function articleMaker( article ) {
+  const divArticle = document.querySelector('div.articles')
+
+  const articleDiv = document.createElement('div')
+  const articleTitle = document.createElement('h2')
+  const articleDate = document.createElement('p')
+  const articleContent1 = document.createElement('p')
+  const articleContent2 = document.createElement('p')
+  const articleContent3 = document.createElement('p')
+  const articleExpand = document.createElement('span')
+
+  divArticle.appendChild(articleDiv)
+  articleDiv.appendChild(articleTitle)
+  articleDiv.appendChild(articleDate)
+  articleDiv.appendChild(articleContent1)
+  articleDiv.appendChild(articleContent2)
+  articleDiv.appendChild(articleContent3)
+  articleDiv.appendChild(articleExpand)
+
+  articleDiv.classList.add('article')
+  articleDate.classList.add('date')
+  articleExpand.classList.add('expandButton')
+
+  articleTitle.textContent = article.title
+  articleDate.textContent = article.date
+  articleContent1.textContent = article.firstParagraph
+  articleContent2.textContent = article.secondParagraph
+  articleContent3.textContent = article.thirdParagraph
+  articleExpand.textContent = '+'
+
+  articleExpand.addEventListener('click', () => {
+    articleDiv.classList.toggle('article-open')
+  })
+  return article
+}
+
+// .map
+const articleElements = data.map(data => {
+  return articleMaker(data)
+})
+
+articleElements.forEach(elem => document.querySelector('.articles').append(elem))
